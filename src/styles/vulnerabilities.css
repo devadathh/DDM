@@ -1,0 +1,218 @@
+/* Wrapper */
+.vuln-wrapper {
+  display: flex;
+  height: 100vh;
+  background: #f3f4f6;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Main area */
+.vuln-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollable content */
+.vuln-content {
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* Header */
+.vuln-header {
+  margin-bottom: 30px;
+}
+
+.vuln-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.vuln-header p {
+  margin-top: 6px;
+  color: #6b7280;
+}
+
+/* Stats Row */
+.vuln-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.vuln-stat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.vuln-stat-card h4 {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.vuln-stat-card .vuln-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Severity Colors */
+.sev-critical { color: #dc2626; }
+.sev-high { color: #ea580c; }
+.sev-medium { color: #ca8a04; }
+.sev-low { color: #2563eb; }
+
+/* Toolbar */
+.vuln-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+}
+
+.vuln-search {
+  width: 60%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.vuln-filter {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+/* Vulnerability Card */
+.vuln-card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.vuln-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.vuln-cve {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.vuln-tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tag-critical {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.tag-high {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+.tag-medium {
+  background: #fef3c7;
+  color: #ca8a04;
+}
+
+.tag-low {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.cvss-pill {
+  background: #e5e7eb;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* Description */
+.vuln-description {
+  margin: 10px 0;
+  color: #374151;
+}
+
+/* Meta Info */
+.vuln-meta {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+.vuln-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vuln-link {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.vuln-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-ignore {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-fix {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-fix:hover {
+  background: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .vuln-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vuln-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vuln-search {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
