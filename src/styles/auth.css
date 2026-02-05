@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f3f4f6;
+}
+
+/* Layout */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo */
+.logo-box {
+  width: 64px;
+  height: 64px;
+  background: #2563eb;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: white;
+  margin-bottom: 18px;
+}
+
+/* Title */
+.auth-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0;
+  color: #111827;
+}
+
+.auth-subtitle {
+  margin-top: 6px;
+  margin-bottom: 28px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* Card */
+.auth-card {
+  width: 400px;
+  background: white;
+  padding: 36px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.auth-card h2 {
+  margin-bottom: 24px;
+  font-size: 22px;
+  color: #111827;
+}
+
+/* Form spacing */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Checkbox */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #374151;
+}
+
+.checkbox-row input {
+  margin-right: 8px;
+}
+
+.checkbox-row span {
+  color: #2563eb;
+  cursor: pointer;
+}
+
+/* Button */
+.auth-button {
+  width: 100%;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.auth-button:hover {
+  background: #1d4ed8;
+}
+
+/* Footer */
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.auth-footer span {
+  color: #2563eb;
+  cursor: pointer;
+}
