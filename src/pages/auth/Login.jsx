@@ -1,47 +1,72 @@
-
+import { Link } from "react-router-dom";
 import "../../styles/auth.css";
 
 function Login() {
   return (
-    <div className="auth-container">
-      <div className="logo-box">🛡</div>
+    <div className="auth-wrapper">
 
-      <h1 className="auth-title">Dependency Drift Monitor</h1>
-      <p className="auth-subtitle">
-        Track vulnerabilities and version drift
-      </p>
+      {/* Logo + Heading */}
+      <div className="auth-header">
+        <div className="logo-box">
+          <span className="shield-icon">🛡️</span>
+        </div>
+        <h1>Dependency Monitor</h1>
+        <p>Track vulnerabilities and version drift</p>
+      </div>
 
+      {/* Card */}
       <div className="auth-card">
         <h2>Sign in to your account</h2>
 
-        <div className="form-group">
+        {/* Email */}
+        <div className="input-group">
           <label>Email address</label>
-          <input type="email" placeholder="you@example.com" />
-        </div>
-
-        <div className="form-group">
-          <label>Password</label>
-          <input type="password" placeholder="••••••••" />
-        </div>
-
-        <div className="auth-row">
-          <div>
-            <input type="checkbox" /> Remember me
+          <div className="input-field">
+            <span className="input-icon">✉️</span>
+            <input
+              type="email"
+              placeholder="you@example.com"
+            />
           </div>
-          <span style={{ color: "#2563eb", cursor: "pointer" }}>
-            Forgot password?
-          </span>
         </div>
 
+        {/* Password */}
+        <div className="input-group">
+          <label>Password</label>
+          <div className="input-field">
+            <span className="input-icon">🔒</span>
+            <input
+              type="password"
+              placeholder="••••••••"
+            />
+          </div>
+        </div>
+
+        {/* Remember + Forgot */}
+        <div className="auth-options">
+          <label className="remember">
+            <input type="checkbox" />
+            Remember me
+          </label>
+
+          <Link to="/forgot-password" className="forgot-link">
+            Forgot password?
+          </Link>
+        </div>
+
+        {/* Button */}
         <button className="auth-button">Sign in</button>
 
+        {/* Bottom Link */}
         <div className="auth-footer">
           Don't have an account?{" "}
-          <span style={{ color: "#2563eb", cursor: "pointer" }}>
-            Sign up
-          </span>
+          <Link to="/register">Sign up</Link>
         </div>
       </div>
+
+      <p className="bottom-text">
+        Open-source security monitoring for your projects
+      </p>
     </div>
   );
 }

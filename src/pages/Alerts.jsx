@@ -1,220 +1,111 @@
-import "../styles/dashboard.css";
 import "../styles/alerts.css";
 
 function Alerts() {
   return (
-    <div className="dashboard-wrapper">
+    <div className="page-wrapper">
 
-      {/* === SAME SIDEBAR AS DASHBOARD === */}
-      <div className="sidebar">
-        <h2>DepMonitor</h2>
-        <a>Dashboard</a>
-        <a>Projects</a>
-        <a>Dependencies</a>
-        <a>Vulnerabilities</a>
-        <a className="active">Alerts</a>
-        <a>Settings</a>
+      {/* Header */}
+      <div className="page-header">
+        <div>
+          <h1>Alerts</h1>
+          <p>Monitor and manage security alerts</p>
+        </div>
       </div>
 
-      <div className="dashboard-main">
+      {/* Summary Cards */}
+      <div className="alerts-stats">
 
-        <div className="topbar">
-          <div>All Alerts</div>
+        <div className="stat-card">
+          <p>Total Alerts</p>
+          <h2>6</h2>
         </div>
 
-        <div className="dashboard-content">
+        <div className="stat-card">
+          <p>Open</p>
+          <h2 className="orange">4</h2>
+        </div>
 
-          {/* ================= HEADER ================= */}
-          <div className="alerts-header">
-            <h1>Alerts</h1>
-            <p>Monitor and manage security alerts</p>
-          </div>
+        <div className="stat-card">
+          <p>Resolved</p>
+          <h2 className="green">2</h2>
+        </div>
 
-          {/* ================= STATS ================= */}
-          <div className="alerts-stats-row">
-            <div className="alerts-stat-card">
-              <h4>Total Alerts</h4>
-              <div className="alerts-value">6</div>
-            </div>
+      </div>
 
-            <div className="alerts-stat-card">
-              <h4>Open Alerts</h4>
-              <div className="alerts-value value-open">4</div>
-            </div>
+      {/* Filter */}
+      <div className="alerts-filter">
+        <select>
+          <option>All Alerts</option>
+          <option>Open</option>
+          <option>Resolved</option>
+        </select>
+      </div>
 
-            <div className="alerts-stat-card">
-              <h4>Resolved</h4>
-              <div className="alerts-value value-resolved">2</div>
-            </div>
-          </div>
+      {/* Alert Cards */}
 
-          {/* ================= SEARCH + FILTER ================= */}
-          <div className="alerts-toolbar">
-            <input
-              className="alerts-search"
-              placeholder="Search alerts..."
-            />
+      <div className="alerts-list">
 
+        {/* Alert 1 */}
+        <div className="alert-card open">
+          <div className="alert-header">
             <div>
-              <select className="alerts-filter">
-                <option>All Status</option>
-                <option>Open</option>
-                <option>Resolved</option>
-              </select>
-
-              <select className="alerts-filter">
-                <option>All Types</option>
-                <option>Vulnerability</option>
-                <option>Version Drift</option>
-              </select>
+              <h3>Critical vulnerability detected</h3>
+              <p>lodash in react-app</p>
             </div>
+            <span className="badge critical">OPEN</span>
           </div>
 
-          {/* ================= PROJECT GROUP 1 ================= */}
-          <div className="alert-group">
-            <div className="alert-group-header">
-              <span>react-app</span>
-              <span>3 alerts</span>
-            </div>
+          <p className="alert-description">
+            A critical security issue was found in lodash dependency.
+          </p>
 
-            {/* Alert 1 */}
-            <div className="alert-card">
-              <div className="alert-content">
-                <div className="alert-title">
-                  Critical vulnerability detected in lodash
-                  <span className="alert-status status-open">
-                    OPEN
-                  </span>
-                </div>
-
-                <div className="alert-meta">
-                  Dependency: lodash@4.17.20 &nbsp; | &nbsp;
-                  Severity: <span className="sev-critical">CRITICAL</span>
-                  &nbsp; | &nbsp; CVE: CVE-2024-1234
-                </div>
-
-                <div className="alert-time">
-                  2024-01-19 14:30
-                </div>
-              </div>
-
-              <div className="alert-actions">
-                <button className="btn-dismiss">
-                  Dismiss
-                </button>
-                <button className="btn-resolve">
-                  Resolve
-                </button>
-              </div>
-            </div>
-
-            {/* Alert 2 */}
-            <div className="alert-card">
-              <div className="alert-content">
-                <div className="alert-title">
-                  Version drift detected (2 versions behind)
-                  <span className="alert-status status-open">
-                    OPEN
-                  </span>
-                </div>
-
-                <div className="alert-meta">
-                  Dependency: webpack@5.88.0 &nbsp; | &nbsp;
-                  Severity: <span className="sev-low">LOW</span>
-                </div>
-
-                <div className="alert-time">
-                  2024-01-18 14:10
-                </div>
-              </div>
-
-              <div className="alert-actions">
-                <button className="btn-dismiss">
-                  Dismiss
-                </button>
-                <button className="btn-resolve">
-                  Resolve
-                </button>
-              </div>
-            </div>
-
+          <div className="alert-footer">
+            <span>2 hours ago</span>
+            <button className="resolve-btn">Resolve</button>
           </div>
-
-          {/* ================= PROJECT GROUP 2 ================= */}
-          <div className="alert-group">
-            <div className="alert-group-header">
-              <span>api-service</span>
-              <span>1 alert</span>
-            </div>
-
-            <div className="alert-card">
-              <div className="alert-content">
-                <div className="alert-title">
-                  High severity vulnerability in express
-                  <span className="alert-status status-open">
-                    OPEN
-                  </span>
-                </div>
-
-                <div className="alert-meta">
-                  Dependency: express@4.18.2 &nbsp; | &nbsp;
-                  Severity: <span className="sev-high">HIGH</span>
-                  &nbsp; | &nbsp; CVE: CVE-2024-5678
-                </div>
-
-                <div className="alert-time">
-                  2024-01-19 12:15
-                </div>
-              </div>
-
-              <div className="alert-actions">
-                <button className="btn-dismiss">
-                  Dismiss
-                </button>
-                <button className="btn-resolve">
-                  Resolve
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* ================= PROJECT GROUP 3 ================= */}
-          <div className="alert-group">
-            <div className="alert-group-header">
-              <span>mobile-app</span>
-              <span>1 alert</span>
-            </div>
-
-            <div className="alert-card">
-              <div className="alert-content">
-                <div className="alert-title">
-                  Low severity vulnerability in axios
-                  <span className="alert-status status-resolved">
-                    RESOLVED
-                  </span>
-                </div>
-
-                <div className="alert-meta">
-                  Dependency: axios@1.5.0 &nbsp; | &nbsp;
-                  Severity: <span className="sev-low">LOW</span>
-                  &nbsp; | &nbsp; CVE: CVE-2024-3456
-                </div>
-
-                <div className="alert-time">
-                  2024-01-18 16:20
-                </div>
-              </div>
-
-              <div className="alert-actions">
-                <span style={{ color: "#059669", fontWeight: "600" }}>
-                  ✔ Resolved
-                </span>
-              </div>
-            </div>
-          </div>
-
         </div>
+
+        {/* Alert 2 */}
+        <div className="alert-card open">
+          <div className="alert-header">
+            <div>
+              <h3>Version drift detected</h3>
+              <p>react in frontend-dashboard</p>
+            </div>
+            <span className="badge warning">OPEN</span>
+          </div>
+
+          <p className="alert-description">
+            New version available for React dependency.
+          </p>
+
+          <div className="alert-footer">
+            <span>5 hours ago</span>
+            <button className="resolve-btn">Resolve</button>
+          </div>
+        </div>
+
+        {/* Alert 3 */}
+        <div className="alert-card resolved">
+          <div className="alert-header">
+            <div>
+              <h3>Medium severity vulnerability resolved</h3>
+              <p>moment in mobile-app</p>
+            </div>
+            <span className="badge success">RESOLVED</span>
+          </div>
+
+          <p className="alert-description">
+            The vulnerability has been patched successfully.
+          </p>
+
+          <div className="alert-footer">
+            <span>2 days ago</span>
+          </div>
+        </div>
+
       </div>
+
     </div>
   );
 }

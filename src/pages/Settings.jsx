@@ -1,180 +1,86 @@
 import "../styles/settings.css";
-import MainLayout from "../layouts/MainLayout";
-import { useState } from "react";
 
 function Settings() {
-  const [riskScore, setRiskScore] = useState(70);
-
   return (
-    <MainLayout>
-      <div className="settings-content">
+    <div className="page-wrapper">
 
-        {/* Page Header */}
-        <div className="settings-header">
+      {/* Header */}
+      <div className="page-header">
+        <div>
           <h1>Settings</h1>
-          <p>Manage your account and preferences</p>
+          <p>Manage your account and application preferences</p>
         </div>
-
-        {/* ================= PROFILE SETTINGS ================= */}
-        <div className="settings-card">
-          <div className="settings-section-title">
-            Profile Settings
-          </div>
-
-          <div className="profile-grid">
-            <div className="profile-field">
-              <label>Full Name</label>
-              <input defaultValue="John Doe" />
-            </div>
-
-            <div className="profile-field">
-              <label>Email Address</label>
-              <input defaultValue="john.doe@company.com" />
-            </div>
-
-            <div className="profile-field">
-              <label>Company</label>
-              <input defaultValue="TechCorp Inc." />
-            </div>
-
-            <div className="profile-field">
-              <label>Role</label>
-              <input defaultValue="Security Engineer" />
-            </div>
-          </div>
-
-          <button className="btn-primary">Save Profile</button>
-        </div>
-
-        {/* ================= NOTIFICATION PREFERENCES ================= */}
-        <div className="settings-card">
-          <div className="settings-section-title">
-            Notification Preferences
-          </div>
-
-          {[
-            {
-              title: "Critical Vulnerabilities",
-              desc: "Get notified immediately for critical security issues",
-            },
-            {
-              title: "High Severity Alerts",
-              desc: "Notifications for high-priority security alerts",
-            },
-            {
-              title: "Drift Detection",
-              desc: "Alerts when dependencies fall behind",
-            },
-            {
-              title: "Weekly Reports",
-              desc: "Receive weekly summary reports via email",
-            },
-            {
-              title: "Email Notifications",
-              desc: "Enable email delivery for all notifications",
-            },
-            {
-              title: "Slack Integration",
-              desc: "Send notifications to Slack channels",
-            },
-          ].map((item, index) => (
-            <div key={index} className="preference-row">
-              <div className="preference-text">
-                <h4>{item.title}</h4>
-                <p>{item.desc}</p>
-              </div>
-              <input type="checkbox" defaultChecked />
-            </div>
-          ))}
-
-          <button className="btn-primary">Save Preferences</button>
-        </div>
-
-        {/* ================= SCAN FREQUENCY ================= */}
-        <div className="settings-card">
-          <div className="settings-section-title">
-            Scan Frequency
-          </div>
-
-          <div className="profile-field">
-            <label>Automatic Scan Frequency</label>
-            <select className="settings-select">
-              <option>Daily</option>
-              <option>Weekly</option>
-              <option>Monthly</option>
-            </select>
-          </div>
-
-          <div className="preference-row">
-            <div className="preference-text">
-              <h4>Automatic Scanning</h4>
-              <p>Run automated scans based on frequency</p>
-            </div>
-            <input type="checkbox" defaultChecked />
-          </div>
-
-          <div className="preference-row">
-            <div className="preference-text">
-              <h4>Scan on Commit</h4>
-              <p>Trigger scans when code is committed to repository</p>
-            </div>
-            <input type="checkbox" defaultChecked />
-          </div>
-
-          <button className="btn-primary">Save Settings</button>
-        </div>
-
-        {/* ================= AI RISK CONFIGURATION ================= */}
-        <div className="settings-card">
-          <div className="settings-section-title">
-            AI Risk Threshold Configuration
-          </div>
-
-          <div className="slider-container">
-            <div className="slider-label">
-              Alert Threshold (Risk Score)
-            </div>
-
-            <div className="slider-wrapper">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={riskScore}
-                onChange={(e) => setRiskScore(e.target.value)}
-                className="settings-slider"
-              />
-              <div className="slider-value">
-                {riskScore}
-              </div>
-            </div>
-          </div>
-
-          <div className="risk-bar"></div>
-
-          <div className="preference-row">
-            <div className="preference-text">
-              <h4>Automatic Recommendations</h4>
-              <p>AI-generated remediation suggestions</p>
-            </div>
-            <input type="checkbox" defaultChecked />
-          </div>
-
-          <div className="preference-row">
-            <div className="preference-text">
-              <h4>Priority Alerts</h4>
-              <p>Use AI to prioritize alert delivery</p>
-            </div>
-            <input type="checkbox" defaultChecked />
-          </div>
-
-          <button className="btn-primary">
-            Save Configuration
-          </button>
-        </div>
-
       </div>
-    </MainLayout>
+
+      {/* Profile Settings */}
+      <div className="settings-card">
+        <h2>Profile Settings</h2>
+
+        <div className="form-grid">
+          <div className="form-group">
+            <label>Full Name</label>
+            <input type="text" defaultValue="John Doe" />
+          </div>
+
+          <div className="form-group">
+            <label>Email Address</label>
+            <input type="email" defaultValue="john.doe@company.com" />
+          </div>
+
+          <div className="form-group">
+            <label>Company</label>
+            <input type="text" defaultValue="TechCorp Inc." />
+          </div>
+
+          <div className="form-group">
+            <label>Role</label>
+            <input type="text" defaultValue="Security Engineer" />
+          </div>
+        </div>
+
+        <button className="primary-btn">Save Profile</button>
+      </div>
+
+      {/* Notification Preferences */}
+      <div className="settings-card">
+        <h2>Notification Preferences</h2>
+
+        <div className="toggle-row">
+          <div>
+            <h4>Email Alerts</h4>
+            <p>Receive email notifications for critical vulnerabilities</p>
+          </div>
+          <input type="checkbox" defaultChecked />
+        </div>
+
+        <div className="toggle-row">
+          <div>
+            <h4>Version Drift Notifications</h4>
+            <p>Get notified when dependencies have newer versions</p>
+          </div>
+          <input type="checkbox" defaultChecked />
+        </div>
+      </div>
+
+      {/* AI Risk Threshold */}
+      <div className="settings-card">
+        <h2>AI Risk Threshold Configuration</h2>
+
+        <p>
+          Configure the risk score threshold for AI-generated alerts.
+          Dependencies exceeding this threshold will trigger alerts.
+        </p>
+
+        <div className="slider-container">
+          <span>Low Risk</span>
+          <input type="range" min="0" max="100" defaultValue="70" />
+          <span>High Risk</span>
+        </div>
+
+        <button className="primary-btn">Save Configuration</button>
+      </div>
+
+    </div>
   );
 }
 

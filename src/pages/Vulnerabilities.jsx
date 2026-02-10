@@ -1,160 +1,120 @@
-import "../styles/dashboard.css";
 import "../styles/vulnerabilities.css";
 
 function Vulnerabilities() {
   return (
-    <div className="dashboard-wrapper">
+    <div className="page-wrapper">
 
-      {/* === SAME SIDEBAR AS DASHBOARD === */}
-      <div className="sidebar">
-        <h2>DepMonitor</h2>
-        <a>Dashboard</a>
-        <a>Projects</a>
-        <a>Dependencies</a>
-        <a className="active">Vulnerabilities</a>
-        <a>Alerts</a>
-        <a>Settings</a>
+      {/* Page Header */}
+      <div className="page-header">
+        <div>
+          <h1>Vulnerabilities</h1>
+          <p>Known security vulnerabilities across all projects</p>
+        </div>
       </div>
 
-      <div className="dashboard-main">
+      {/* Stats Row */}
+      <div className="vuln-stats">
 
-        <div className="topbar">
-          <div>All Vulnerabilities</div>
+        <div className="stat-card">
+          <p>Total</p>
+          <h2>11</h2>
         </div>
 
-        <div className="dashboard-content">
+        <div className="stat-card">
+          <p>Critical</p>
+          <h2 className="red">3</h2>
+        </div>
 
-          {/* ================= HEADER ================= */}
+        <div className="stat-card">
+          <p>High</p>
+          <h2 className="orange">4</h2>
+        </div>
+
+        <div className="stat-card">
+          <p>Medium</p>
+          <h2 className="yellow">2</h2>
+        </div>
+
+        <div className="stat-card">
+          <p>Low</p>
+          <h2 className="green">2</h2>
+        </div>
+
+      </div>
+
+      {/* Search + Filter */}
+      <div className="vuln-controls">
+        <input placeholder="Search vulnerabilities..." />
+        <select>
+          <option>All Severity</option>
+        </select>
+      </div>
+
+      {/* Vulnerability Cards */}
+      <div className="vuln-list">
+
+        {/* Card 1 */}
+        <div className="vuln-card">
           <div className="vuln-header">
-            <h1>Vulnerabilities</h1>
-            <p>Known security vulnerabilities in your dependencies</p>
+            <div>
+              <h3>CVE-2024-1234</h3>
+              <p>lodash • react-app</p>
+            </div>
+            <span className="badge critical">CRITICAL</span>
           </div>
 
-          {/* ================= STATS ================= */}
-          <div className="vuln-stats-row">
-            <div className="vuln-stat-card">
-              <h4>Critical</h4>
-              <div className="vuln-value sev-critical">1</div>
-            </div>
+          <p className="vuln-description">
+            Prototype pollution vulnerability in lodash versions prior to 4.17.21.
+          </p>
 
-            <div className="vuln-stat-card">
-              <h4>High</h4>
-              <div className="vuln-value sev-high">1</div>
-            </div>
-
-            <div className="vuln-stat-card">
-              <h4>Medium</h4>
-              <div className="vuln-value sev-medium">2</div>
-            </div>
-
-            <div className="vuln-stat-card">
-              <h4>Low</h4>
-              <div className="vuln-value sev-low">1</div>
-            </div>
+          <div className="vuln-footer">
+            <span>Discovered 2 days ago</span>
+            <button className="resolve-btn">View Details</button>
           </div>
-
-          {/* ================= SEARCH & FILTER ================= */}
-          <div className="vuln-toolbar">
-            <input
-              className="vuln-search"
-              placeholder="Search CVE ID or dependency..."
-            />
-
-            <select className="vuln-filter">
-              <option>All Severities</option>
-              <option>Critical</option>
-              <option>High</option>
-              <option>Medium</option>
-              <option>Low</option>
-            </select>
-          </div>
-
-          {/* ================= VULNERABILITY CARD 1 ================= */}
-          <div className="vuln-card">
-            <div className="vuln-card-header">
-              <span className="vuln-cve">CVE-2024-1234</span>
-              <span className="vuln-tag tag-critical">CRITICAL</span>
-              <span className="cvss-pill">CVSS: 9.8</span>
-            </div>
-
-            <div className="vuln-description">
-              Prototype pollution vulnerability that could lead to remote code execution.
-            </div>
-
-            <div className="vuln-meta">
-              Dependency: lodash@4.17.20 &nbsp; | &nbsp;
-              Project: react-app &nbsp; | &nbsp;
-              Published: 2024-01-10
-            </div>
-
-            <div className="vuln-footer">
-              <a className="vuln-link">View NVD Details</a>
-
-              <div className="vuln-actions">
-                <button className="btn-ignore">Ignore</button>
-                <button className="btn-fix">Fix Now</button>
-              </div>
-            </div>
-          </div>
-
-          {/* ================= VULNERABILITY CARD 2 ================= */}
-          <div className="vuln-card">
-            <div className="vuln-card-header">
-              <span className="vuln-cve">CVE-2024-5678</span>
-              <span className="vuln-tag tag-high">HIGH</span>
-              <span className="cvss-pill">CVSS: 7.5</span>
-            </div>
-
-            <div className="vuln-description">
-              Cross-site scripting vulnerability due to improper input validation.
-            </div>
-
-            <div className="vuln-meta">
-              Dependency: express@4.18.2 &nbsp; | &nbsp;
-              Project: api-service &nbsp; | &nbsp;
-              Published: 2024-01-12
-            </div>
-
-            <div className="vuln-footer">
-              <a className="vuln-link">View NVD Details</a>
-
-              <div className="vuln-actions">
-                <button className="btn-ignore">Ignore</button>
-                <button className="btn-fix">Fix Now</button>
-              </div>
-            </div>
-          </div>
-
-          {/* ================= VULNERABILITY CARD 3 ================= */}
-          <div className="vuln-card">
-            <div className="vuln-card-header">
-              <span className="vuln-cve">CVE-2024-3456</span>
-              <span className="vuln-tag tag-low">LOW</span>
-              <span className="cvss-pill">CVSS: 3.7</span>
-            </div>
-
-            <div className="vuln-description">
-              Information disclosure through verbose error messages.
-            </div>
-
-            <div className="vuln-meta">
-              Dependency: axios@1.5.0 &nbsp; | &nbsp;
-              Project: mobile-app &nbsp; | &nbsp;
-              Published: 2024-01-08
-            </div>
-
-            <div className="vuln-footer">
-              <a className="vuln-link">View NVD Details</a>
-
-              <div className="vuln-actions">
-                <button className="btn-ignore">Ignore</button>
-                <button className="btn-fix">Fix Now</button>
-              </div>
-            </div>
-          </div>
-
         </div>
+
+        {/* Card 2 */}
+        <div className="vuln-card">
+          <div className="vuln-header">
+            <div>
+              <h3>CVE-2024-5678</h3>
+              <p>express • api-service</p>
+            </div>
+            <span className="badge high">HIGH</span>
+          </div>
+
+          <p className="vuln-description">
+            Denial of service vulnerability in Express.js middleware chain.
+          </p>
+
+          <div className="vuln-footer">
+            <span>Discovered 5 days ago</span>
+            <button className="resolve-btn">View Details</button>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className="vuln-card">
+          <div className="vuln-header">
+            <div>
+              <h3>CVE-2024-7890</h3>
+              <p>moment • mobile-app</p>
+            </div>
+            <span className="badge medium">MEDIUM</span>
+          </div>
+
+          <p className="vuln-description">
+            Improper input validation leading to unexpected behavior.
+          </p>
+
+          <div className="vuln-footer">
+            <span>Discovered 1 week ago</span>
+            <button className="resolve-btn">View Details</button>
+          </div>
+        </div>
+
       </div>
+
     </div>
   );
 }

@@ -1,146 +1,162 @@
-import "../styles/dashboard.css";
+import "../styles/layout.css";
 import "../styles/dependencies.css";
 
 function Dependencies() {
   return (
-    <div className="dashboard-wrapper">
-
-      {/* === SAME SIDEBAR AS DASHBOARD === */}
-      <div className="sidebar">
-        <h2>DepMonitor</h2>
-        <a>Dashboard</a>
-        <a>Projects</a>
-        <a className="active">Dependencies</a>
-        <a>Vulnerabilities</a>
-        <a>Alerts</a>
-        <a>Settings</a>
+    <div className="page-wrapper">
+      <div className="page-header">
+        <div>
+          <h1>Dependencies</h1>
+          <p>Monitoring all projects</p>
+        </div>
       </div>
 
-      <div className="dashboard-main">
-
-        <div className="topbar">
-          <div>All Dependencies</div>
+      {/* Stats Cards */}
+      <div className="stats-row">
+        <div className="stat-card">
+          <div>
+            <p>Total</p>
+            <h2>8</h2>
+          </div>
+          <div className="icon-box gray">📦</div>
         </div>
 
-        <div className="dashboard-content">
-
-          {/* ================= HEADER ================= */}
-          <div className="dependencies-header">
-            <h1>Dependencies</h1>
-            <p>Monitoring all projects</p>
+        <div className="stat-card">
+          <div>
+            <p>Vulnerable</p>
+            <h2 className="red">3</h2>
           </div>
-
-          {/* ================= STATS ================= */}
-          <div className="dep-stats-row">
-            <div className="dep-stat-card">
-              <h4>Total</h4>
-              <div className="dep-value">8</div>
-            </div>
-
-            <div className="dep-stat-card">
-              <h4>Vulnerable</h4>
-              <div className="dep-value severity-critical">3</div>
-            </div>
-
-            <div className="dep-stat-card">
-              <h4>Version Drift</h4>
-              <div className="dep-value severity-high">3</div>
-            </div>
-
-            <div className="dep-stat-card">
-              <h4>Up to Date</h4>
-              <div className="dep-value severity-safe">2</div>
-            </div>
-          </div>
-
-          {/* ================= SEARCH & FILTER ================= */}
-          <div className="dep-toolbar">
-            <input
-              className="dep-search"
-              placeholder="Search dependencies..."
-            />
-
-            <select className="dep-filter">
-              <option>All Status</option>
-              <option>Vulnerable</option>
-              <option>Version Drift</option>
-              <option>Up to Date</option>
-            </select>
-          </div>
-
-          {/* ================= TABLE ================= */}
-          <table className="dep-table">
-            <thead>
-              <tr>
-                <th>Dependency</th>
-                <th>Current Version</th>
-                <th>Latest Version</th>
-                <th>Status</th>
-                <th>Severity</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>react</td>
-                <td><span className="version-pill">18.2.0</span></td>
-                <td><span className="version-pill">18.3.1</span></td>
-                <td>
-                  <span className="status-badge status-drift">
-                    Version Drift
-                  </span>
-                </td>
-                <td>-</td>
-                <td><a className="action-link">Details</a></td>
-              </tr>
-
-              <tr>
-                <td>lodash</td>
-                <td><span className="version-pill">4.17.20</span></td>
-                <td><span className="version-pill">4.17.21</span></td>
-                <td>
-                  <span className="status-badge status-vulnerable">
-                    Vulnerable
-                  </span>
-                </td>
-                <td>
-                  <span className="severity-critical">
-                    CRITICAL
-                  </span>
-                </td>
-                <td><a className="action-link">Details</a></td>
-              </tr>
-
-              <tr>
-                <td>axios</td>
-                <td><span className="version-pill">1.6.0</span></td>
-                <td><span className="version-pill">1.6.0</span></td>
-                <td>
-                  <span className="status-badge status-safe">
-                    Up to Date
-                  </span>
-                </td>
-                <td>-</td>
-                <td><a className="action-link">Details</a></td>
-              </tr>
-
-              <tr>
-                <td>webpack</td>
-                <td><span className="version-pill">5.88.0</span></td>
-                <td><span className="version-pill">5.90.0</span></td>
-                <td>
-                  <span className="status-badge status-drift">
-                    Version Drift
-                  </span>
-                </td>
-                <td>-</td>
-                <td><a className="action-link">Details</a></td>
-              </tr>
-            </tbody>
-          </table>
-
+          <div className="icon-box red">⚠️</div>
         </div>
+
+        <div className="stat-card">
+          <div>
+            <p>Version Drift</p>
+            <h2 className="orange">3</h2>
+          </div>
+          <div className="icon-box orange">⬆️</div>
+        </div>
+
+        <div className="stat-card">
+          <div>
+            <p>Up to Date</p>
+            <h2 className="green">2</h2>
+          </div>
+          <div className="icon-box green">✔</div>
+        </div>
+      </div>
+
+      {/* Search + Filter */}
+      <div className="table-controls">
+        <input placeholder="Search dependencies..." />
+        <select>
+          <option>All Status</option>
+        </select>
+      </div>
+
+      {/* Table */}
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>DEPENDENCY</th>
+              <th>CURRENT VERSION</th>
+              <th>LATEST VERSION</th>
+              <th>STATUS</th>
+              <th>SEVERITY</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                react <span className="badge">production</span>
+              </td>
+              <td>18.2.0</td>
+              <td>18.3.1</td>
+              <td><span className="status orange">Version Drift</span></td>
+              <td>-</td>
+              <td><a href="#">Details</a></td>
+            </tr>
+
+            <tr>
+              <td>
+                lodash <span className="badge">production</span>
+              </td>
+              <td>4.17.20</td>
+              <td>4.17.21</td>
+              <td><span className="status red">Vulnerable</span></td>
+              <td className="red">CRITICAL</td>
+              <td><a href="#">Details</a></td>
+            </tr>
+
+            <tr>
+              <td>
+                express <span className="badge">production</span>
+              </td>
+              <td>4.18.2</td>
+              <td>4.19.0</td>
+              <td><span className="status red">Vulnerable</span></td>
+              <td className="orange">HIGH</td>
+              <td><a href="#">Details</a></td>
+            </tr>
+
+            <tr>
+              <td>
+                axios <span className="badge">production</span>
+              </td>
+              <td>1.6.0</td>
+              <td>1.6.0</td>
+              <td><span className="status green">Up to Date</span></td>
+              <td>-</td>
+              <td><a href="#">Details</a></td>
+            </tr>
+
+            <tr>
+              <td>
+                webpack <span className="badge">development</span>
+              </td>
+              <td>5.88.0</td>
+              <td>5.90.0</td>
+              <td><span className="status orange">Version Drift</span></td>
+              <td>-</td>
+              <td><a href="#">Details</a></td>
+            </tr>
+
+            <tr>
+              <td>
+                typescript <span className="badge">development</span>
+              </td>
+              <td>5.3.3</td>
+              <td>5.3.3</td>
+              <td><span className="status green">Up to Date</span></td>
+              <td>-</td>
+              <td><a href="#">Details</a></td>
+            </tr>
+
+            <tr>
+              <td>
+                eslint <span className="badge">development</span>
+              </td>
+              <td>8.55.0</td>
+              <td>8.56.0</td>
+              <td><span className="status orange">Version Drift</span></td>
+              <td>-</td>
+              <td><a href="#">Details</a></td>
+            </tr>
+
+            <tr>
+              <td>
+                moment <span className="badge">production</span>
+              </td>
+              <td>2.29.4</td>
+              <td>2.30.1</td>
+              <td><span className="status red">Vulnerable</span></td>
+              <td className="yellow">MEDIUM</td>
+              <td><a href="#">Details</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
